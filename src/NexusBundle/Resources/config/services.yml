@@ -1,0 +1,10 @@
+services:
+    nexus.event_listener.kernel_controller:
+        class: NexusBundle\EventListener\KernelControllerListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+        arguments: ["@logger"]
+#    nexus.example:
+#        class: NexusBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
